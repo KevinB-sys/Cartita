@@ -317,6 +317,57 @@
             background: #d81b60;
         }
 
+        /* BOTÓN COLLAGE */
+        .collage-button {
+            display: none;
+            margin-top: 20px;
+            background: #ffd54f;
+            color: #ad1457;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            align-self: center;
+        }
+
+        .collage-button:hover {
+            background: #ffca28;
+        }
+
+        /* COLLAGE DE FOTOS */
+        .collage {
+            display: none;
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .collage img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeZoom 0.6s forwards;
+        }
+
+        .collage img:nth-child(1) { animation-delay: 0.1s; }
+        .collage img:nth-child(2) { animation-delay: 0.3s; }
+        .collage img:nth-child(3) { animation-delay: 0.5s; }
+        .collage img:nth-child(4) { animation-delay: 0.7s; }
+
+        @keyframes fadeZoom {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
         @media (max-width: 480px) {
             .container {
                 width: 340px;
@@ -351,12 +402,10 @@
             <div class="sparkles">✨</div>
             <div class="envelope-base">
                 <div class="envelope-pattern"></div>
-                
                 <div class="envelope-front">
                     <div class="bear-stamp">
                         <img src="https://cdn-icons-png.flaticon.com/128/8601/8601186.png" alt="Osito feliz">
                     </div>
-                    
                     <div class="envelope-address">
                         <br><br><br>
                         <div class="to-label">Para:</div>
@@ -365,7 +414,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="envelope-flap"></div>
         </div>
 
@@ -381,9 +429,18 @@
                 </div>
 
                 <div class="message-content">
-                    <div class="message-text" id="messageText">
-                        <!-- El mensaje se escribirá aquí automáticamente -->
-                    </div>
+                    <div class="message-text" id="messageText"></div>
+                </div>
+
+                <!-- Botón Collage -->
+                <button class="collage-button" id="collageButton">📸 Collage de Fotos</button>
+
+                <!-- Collage de fotos -->
+                <div class="collage" id="collage">
+                    <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d" alt="Foto bonita 1">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Foto bonita 2">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Foto bonita 3">
+                    <img src="https://images.unsplash.com/photo-1502720705749-3c92558504c0" alt="Foto bonita 4">
                 </div>
 
                 <div class="letter-footer">
@@ -402,6 +459,8 @@
         const letterView = document.getElementById('letterView');
         const backButton = document.getElementById('backButton');
         const messageText = document.getElementById('messageText');
+        const collageButton = document.getElementById('collageButton');
+        const collage = document.getElementById('collage');
         
         const birthdayMessage = `🎉 ¡Alyson! 🎂
 
@@ -424,16 +483,12 @@ K.B :3
         envelopeView.addEventListener('click', function() {
             if (!hasOpened) {
                 hasOpened = true;
-                
-                // Animar la solapa del sobre
                 envelopeView.classList.add('opening');
                 
-                // Después de un momento, ocultar el sobre y mostrar la carta
                 setTimeout(() => {
                     envelopeView.classList.add('hidden');
                     letterView.classList.add('visible');
                     
-                    // Comenzar a escribir el mensaje
                     setTimeout(() => {
                         typeMessage();
                     }, 500);
@@ -447,6 +502,8 @@ K.B :3
             envelopeView.classList.remove('opening');
             hasOpened = false;
             messageText.innerHTML = '';
+            collageButton.style.display = 'none';
+            collage.style.display = 'none';
         });
 
         function typeMessage() {
@@ -458,7 +515,6 @@ K.B :3
                     messageText.innerHTML += birthdayMessage.charAt(index);
                     index++;
                     
-                    // Velocidad variable para hacer más natural la escritura
                     const delay = birthdayMessage.charAt(index - 1) === '\n' ? 300 : 
                                  birthdayMessage.charAt(index - 1) === '.' ? 400 :
                                  birthdayMessage.charAt(index - 1) === '!' ? 350 :
@@ -467,13 +523,20 @@ K.B :3
                     
                     setTimeout(typeChar, delay);
                 } else {
-                    // Agregar cursor parpadeante al final
                     messageText.innerHTML += '<span class="typing-cursor"></span>';
+                    setTimeout(() => {
+                        collageButton.style.display = 'block';
+                    }, 500);
                 }
             }
             
             typeChar();
         }
+
+        collageButton.addEventListener('click', () => {
+            collage.style.display = 'grid';
+            collageButton.style.display = 'none';
+        });
     </script>
 </body>
 </html>
