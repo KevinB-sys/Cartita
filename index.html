@@ -12,8 +12,8 @@
         }
 
         body {
-            background: linear-gradient(45deg, #fce4ec, #f8bbd9);
-            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fff7ed 50%, #ffffff 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -24,8 +24,30 @@
 
         .container {
             position: relative;
-            width: 380px;
-            height: 280px;
+            width: 350px;
+            height: 260px;
+        }
+
+        /* MÚSICA */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
         }
 
         /* SOBRE CERRADO */
@@ -48,10 +70,10 @@
         .envelope-base {
             width: 100%;
             height: 100%;
-            background: #ffffff;
-            border: 3px solid #d81b60;
-            border-radius: 8px;
-            box-shadow: 0 8px 25px rgba(216, 27, 96, 0.2);
+            background: linear-gradient(145deg, #ffffff 0%, #fdf2f8 100%);
+            border: 3px solid #f472b6;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(244, 114, 182, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -62,12 +84,12 @@
             left: 0;
             width: 100%;
             height: 50%;
-            background: #ec407a;
+            background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
             clip-path: polygon(0 0, 100% 0, 50% 100%);
             transition: transform 0.6s ease;
             transform-origin: top center;
             z-index: 3;
-            border-bottom: 2px solid #d81b60;
+            box-shadow: 0 4px 12px rgba(244, 114, 182, 0.4);
         }
 
         .envelope-view.opening .envelope-flap {
@@ -91,69 +113,76 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            width: 50px;
-            height: 50px;
-            background: #fff;
-            border: 2px solid #d81b60;
-            border-radius: 8px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            border: 3px solid #ffffff;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transform: rotate(-15deg);
+            transform: rotate(-12deg);
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
         }
 
-        .bear-stamp img {
-            width: 35px;
-            height: 35px;
+        .bear-stamp::before {
+            content: "🐻";
+            font-size: 28px;
         }
 
         .envelope-address {
             text-align: center;
-            color: #d81b60;
-            margin-top: 80px;
+            color: #ec4899;
+            margin-top: 70px;
         }
 
         .to-label {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #be185d;
         }
 
         .recipient-name {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ad1457;
-            margin-bottom: 15px;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 18px;
         }
 
         .click-instruction {
-            font-size: 12px;
-            background: #ffd54f;
-            color: #9c27b0;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-weight: bold;
+            font-size: 14px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
             animation: pulse 2s infinite;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+            border: 2px solid #ffffff;
         }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.08); }
         }
 
         .envelope-pattern {
             position: absolute;
-            top: 50%;
-            left: 20px;
-            right: 20px;
-            height: 2px;
-            background: repeating-linear-gradient(
+            top: 60%;
+            left: 25px;
+            right: 25px;
+            height: 3px;
+            background: linear-gradient(
                 90deg,
-                #f8bbd9,
-                #f8bbd9 10px,
-                transparent 10px,
-                transparent 20px
+                #f472b6 0%,
+                #fbbf24 50%,
+                #f472b6 100%
             );
+            border-radius: 2px;
             opacity: 0.6;
         }
 
@@ -164,7 +193,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+            background: linear-gradient(135deg, #fdf2f8 0%, #fff7ed 50%, #ffffff 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -172,6 +201,7 @@
             transform: translateY(100%);
             transition: all 1s ease;
             z-index: 10;
+            padding: 20px;
         }
 
         .letter-view.visible {
@@ -180,38 +210,44 @@
         }
 
         .letter-paper {
-            width: 90%;
-            max-width: 400px;
-            min-height: 500px;
+            width: 100%;
+            max-width: 380px;
+            min-height: 600px;
             background: #ffffff;
-            border: 3px solid #ec407a;
-            border-radius: 15px;
+            border: 3px solid #f472b6;
+            border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 15px 40px rgba(236, 64, 122, 0.3);
+            box-shadow: 0 20px 50px rgba(244, 114, 182, 0.2);
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow-y: auto;
+            max-height: 85vh;
         }
 
         .letter-header {
             text-align: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #f8bbd9;
-            padding-bottom: 15px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #f472b6;
+            padding-bottom: 20px;
         }
 
         .letter-title {
-            font-size: 26px;
-            color: #ad1457;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-size: 32px;
+            background: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            margin-bottom: 12px;
         }
 
         .letter-date {
-            font-size: 14px;
-            color: #9c27b0;
+            font-size: 16px;
+            color: #be185d;
             font-style: italic;
+            font-weight: 600;
         }
 
         .message-content {
@@ -219,23 +255,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 20px 0;
         }
 
         .message-text {
             font-size: 18px;
-            line-height: 1.8;
-            color: #7b1fa2;
+            line-height: 1.7;
+            color: #be185d;
             text-align: center;
-            min-height: 300px;
+            min-height: 320px;
+            white-space: pre-line;
         }
 
         .typing-cursor {
             display: inline-block;
-            background: #ec407a;
+            background: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
             width: 3px;
-            height: 22px;
+            height: 24px;
             animation: blink 1s infinite;
             margin-left: 2px;
+            border-radius: 2px;
         }
 
         @keyframes blink {
@@ -247,115 +286,128 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 25px;
             padding-top: 20px;
-            border-top: 2px solid #f8bbd9;
+            border-top: 3px solid #f472b6;
         }
 
         .bear-icon-large {
-            width: 50px;
-            height: 50px;
+            font-size: 48px;
+            filter: drop-shadow(0 4px 8px rgba(244, 114, 182, 0.2));
         }
 
         .hearts-container {
             display: flex;
-            gap: 8px;
+            gap: 12px;
             align-items: center;
         }
 
         .heart {
-            font-size: 24px;
+            font-size: 32px;
             animation: heartbeat 2.5s infinite;
+            filter: drop-shadow(0 2px 4px rgba(244, 114, 182, 0.3));
         }
-
-        .heart:nth-child(1) { color: #e91e63; }
-        .heart:nth-child(2) { color: #ec407a; animation-delay: 0.3s; }
-        .heart:nth-child(3) { color: #f06292; animation-delay: 0.6s; }
 
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.3); }
+            50% { transform: scale(1.2); }
         }
 
         .sparkles {
             position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 40px;
-            height: 40px;
-            background: #ffd54f;
+            top: -15px;
+            right: -15px;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 24px;
             animation: sparkle 3s infinite;
-            box-shadow: 0 0 15px rgba(255, 213, 79, 0.6);
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+            border: 2px solid #ffffff;
         }
 
         @keyframes sparkle {
-            0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.7; }
-            50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+            0%, 100% { transform: scale(0.9) rotate(0deg); opacity: 0.8; }
+            50% { transform: scale(1.1) rotate(180deg); opacity: 1; }
         }
 
         .back-button {
             position: absolute;
             top: 20px;
             left: 20px;
-            background: #ec407a;
-            color: white;
+            background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+            color: #ffffff;
             border: none;
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 14px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 16px;
             cursor: pointer;
-            font-family: 'Georgia', serif;
-            transition: background 0.3s ease;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
         }
 
         .back-button:hover {
-            background: #d81b60;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 114, 182, 0.4);
         }
 
         /* BOTÓN COLLAGE */
         .collage-button {
             display: none;
-            margin-top: 20px;
-            background: #ffd54f;
-            color: #ad1457;
+            margin: 25px auto 0;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #ffffff;
             border: none;
-            padding: 10px 18px;
-            border-radius: 20px;
-            font-size: 14px;
+            padding: 14px 24px;
+            border-radius: 25px;
+            font-size: 16px;
             cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s ease;
-            align-self: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
         }
 
         .collage-button:hover {
-            background: #ffca28;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+        }
+
+        .collage-button:active {
+            transform: translateY(0);
         }
 
         /* COLLAGE DE FOTOS */
         .collage {
             display: none;
-            margin-top: 25px;
-            display: grid;
+            margin-top: 30px;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 15px;
             width: 100%;
+        }
+
+        .collage.visible {
+            display: grid;
         }
 
         .collage img {
             width: 100%;
-            height: 150px;
+            height: 160px;
             object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(244, 114, 182, 0.15);
             opacity: 0;
-            transform: scale(0.8);
-            animation: fadeZoom 0.6s forwards;
+            transform: scale(0.8) rotate(-5deg);
+            animation: fadeZoom 0.8s forwards;
+            border: 3px solid #ffffff;
+        }
+
+        .collage img:nth-child(even) {
+            transform: scale(0.8) rotate(5deg);
         }
 
         .collage img:nth-child(1) { animation-delay: 0.1s; }
@@ -364,38 +416,88 @@
         .collage img:nth-child(4) { animation-delay: 0.7s; }
 
         @keyframes fadeZoom {
-            0% { opacity: 0; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1); }
+            0% { 
+                opacity: 0; 
+                transform: scale(0.8) rotate(var(--rotate, -5deg));
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) rotate(0deg);
+            }
         }
 
-        @media (max-width: 480px) {
+        /* Optimización iPhone 15 */
+        @media (max-width: 430px) and (max-height: 932px) {
             .container {
-                width: 340px;
-                height: 250px;
+                width: 320px;
+                height: 240px;
             }
             
             .letter-paper {
                 width: 95%;
                 padding: 25px;
-                min-height: 450px;
+                min-height: 550px;
+                max-height: 80vh;
             }
             
             .message-text {
-                font-size: 16px;
-                min-height: 250px;
+                font-size: 17px;
+                min-height: 280px;
+                line-height: 1.6;
             }
             
             .letter-title {
-                font-size: 22px;
+                font-size: 28px;
             }
 
             .recipient-name {
-                font-size: 20px;
+                font-size: 24px;
+            }
+
+            .collage img {
+                height: 140px;
+                border-radius: 14px;
+            }
+
+            .back-button {
+                padding: 10px 18px;
+                font-size: 15px;
+            }
+
+            .collage-button {
+                padding: 12px 20px;
+                font-size: 15px;
+            }
+
+            .music-control {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
+        /* Compatibilidad con notch del iPhone */
+        @supports (padding: max(0px)) {
+            .letter-view {
+                padding-top: max(20px, env(safe-area-inset-top));
+                padding-bottom: max(20px, env(safe-area-inset-bottom));
+            }
+
+            .music-control {
+                top: max(20px, env(safe-area-inset-top, 20px));
+                right: max(20px, env(safe-area-inset-right, 20px));
             }
         }
     </style>
 </head>
 <body>
+    <!-- Control de música -->
+    <button class="music-control" id="musicControl">🎵</button>
+    <audio id="backgroundMusic" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+        <source src="https://archive.org/download/TwinkleTwinkleLittleStar_755/TwinkleTwinkle.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="container">
         <!-- VISTA DEL SOBRE -->
         <div class="envelope-view" id="envelopeView">
@@ -403,9 +505,7 @@
             <div class="envelope-base">
                 <div class="envelope-pattern"></div>
                 <div class="envelope-front">
-                    <div class="bear-stamp">
-                        <img src="https://cdn-icons-png.flaticon.com/128/8601/8601186.png" alt="Osito feliz">
-                    </div>
+                    <div class="bear-stamp"></div>
                     <div class="envelope-address">
                         <br><br><br>
                         <div class="to-label">Para:</div>
@@ -433,7 +533,7 @@
                 </div>
 
                 <!-- Botón Collage -->
-                <button class="collage-button" id="collageButton">📸 Collage de Fotos</button>
+                <button class="collage-button" id="collageButton">📸 Ver Collage de Fotos</button>
 
                 <!-- Collage de fotos -->
                 <div class="collage" id="collage">
@@ -444,11 +544,11 @@
                 </div>
 
                 <div class="letter-footer">
-                    <img src="https://cdn-icons-png.flaticon.com/128/5065/5065436.png" alt="Osito con regalo" class="bear-icon-large">
+                    <div class="bear-icon-large">🎁</div>
                     <div class="hearts-container">
                         <span class="heart">💝</span>
                     </div>
-                    <img src="https://cdn-icons-png.flaticon.com/128/8601/8601186.png" alt="Osito feliz" class="bear-icon-large">
+                    <div class="bear-icon-large">🐻</div>
                 </div>
             </div>
         </div>
@@ -461,13 +561,15 @@
         const messageText = document.getElementById('messageText');
         const collageButton = document.getElementById('collageButton');
         const collage = document.getElementById('collage');
+        const musicControl = document.getElementById('musicControl');
+        const backgroundMusic = document.getElementById('backgroundMusic');
         
         const birthdayMessage = `🎉 ¡Alyson! 🎂
 
 No soy muy bueno con las palabras, pero quiero que sepas lo especial que eres para mí.
 
 ✨ Que todos tus sueños se cumplan
-🌟 Se paciente y esfuerzate que tu puedes con todo
+🌟 Sé paciente y esfuérzate que tú puedes con todo
 💖 Que cada momento te salga bien y exitoso
 🌸 Que siempre tengas motivos para sonreír
 
@@ -479,6 +581,67 @@ K.B :3
 ¡Que tengas un cumpleaños muy muy bonito! 🎊`;
 
         let hasOpened = false;
+        let collageVisible = false;
+        let musicPlaying = false;
+
+        // Control de música
+        musicControl.addEventListener('click', function() {
+            if (musicPlaying) {
+                backgroundMusic.pause();
+                musicControl.textContent = '🎵';
+                musicPlaying = false;
+            } else {
+                // Crear un contexto de audio suave con JavaScript
+                playBirthdaySounds();
+                musicControl.textContent = '🔇';
+                musicPlaying = true;
+            }
+        });
+
+        function playBirthdaySounds() {
+            // Sonidos suaves de cumpleaños usando Web Audio API
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            
+            function playTone(frequency, duration, startTime) {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = frequency;
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0, startTime);
+                gainNode.gain.linearRampToValueAtTime(0.1, startTime + 0.1);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+                
+                oscillator.start(startTime);
+                oscillator.stop(startTime + duration);
+            }
+            
+            // Melodía suave de cumpleaños
+            const notes = [
+                {freq: 261.63, time: 0.0}, // C4
+                {freq: 261.63, time: 0.5}, // C4
+                {freq: 293.66, time: 1.0}, // D4
+                {freq: 261.63, time: 1.5}, // C4
+                {freq: 349.23, time: 2.0}, // F4
+                {freq: 329.63, time: 2.5}, // E4
+            ];
+            
+            const currentTime = audioContext.currentTime;
+            notes.forEach(note => {
+                playTone(note.freq, 0.4, currentTime + note.time);
+            });
+
+            // Repetir cada 10 segundos
+            if (musicPlaying) {
+                setTimeout(() => {
+                    if (musicPlaying) playBirthdaySounds();
+                }, 10000);
+            }
+        }
 
         envelopeView.addEventListener('click', function() {
             if (!hasOpened) {
@@ -501,9 +664,10 @@ K.B :3
             envelopeView.classList.remove('hidden');
             envelopeView.classList.remove('opening');
             hasOpened = false;
+            collageVisible = false;
             messageText.innerHTML = '';
             collageButton.style.display = 'none';
-            collage.style.display = 'none';
+            collage.classList.remove('visible');
         });
 
         function typeMessage() {
@@ -519,14 +683,14 @@ K.B :3
                                  birthdayMessage.charAt(index - 1) === '.' ? 400 :
                                  birthdayMessage.charAt(index - 1) === '!' ? 350 :
                                  birthdayMessage.charAt(index - 1) === ',' ? 200 : 
-                                 birthdayMessage.charAt(index - 1) === ':' ? 250 : 70;
+                                 birthdayMessage.charAt(index - 1) === ':' ? 250 : 75;
                     
                     setTimeout(typeChar, delay);
                 } else {
                     messageText.innerHTML += '<span class="typing-cursor"></span>';
                     setTimeout(() => {
                         collageButton.style.display = 'block';
-                    }, 500);
+                    }, 800);
                 }
             }
             
@@ -534,9 +698,37 @@ K.B :3
         }
 
         collageButton.addEventListener('click', () => {
-            collage.style.display = 'grid';
-            collageButton.style.display = 'none';
+            if (!collageVisible) {
+                collage.classList.add('visible');
+                collageButton.textContent = '📸 Ocultar Collage';
+                collageVisible = true;
+                
+                // Scroll suave hacia el collage
+                setTimeout(() => {
+                    collage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            } else {
+                collage.classList.remove('visible');
+                collageButton.textContent = '📸 Ver Collage de Fotos';
+                collageVisible = false;
+            }
         });
+
+        // Prevenir zoom en doble tap (iOS)
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        });
+
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
     </script>
 </body>
 </html>
