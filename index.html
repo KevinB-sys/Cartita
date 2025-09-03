@@ -12,7 +12,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #fdf2f8 0%, #fff7ed 50%, #ffffff 100%);
+            background: #FFFFFF;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             min-height: 100vh;
             display: flex;
@@ -28,12 +28,12 @@
             height: 260px;
         }
 
-        /* MÚSICA */
+        /* CONTROL DE MÚSICA */
         .music-control {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
+            background: #EDA6D2;
             color: white;
             border: none;
             width: 50px;
@@ -42,12 +42,13 @@
             font-size: 20px;
             cursor: pointer;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+            box-shadow: 0 4px 15px rgba(237, 166, 210, 0.4);
             transition: all 0.3s ease;
         }
 
         .music-control:hover {
             transform: scale(1.1);
+            background: #FFFB00;
         }
 
         /* SOBRE CERRADO */
@@ -70,10 +71,10 @@
         .envelope-base {
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, #ffffff 0%, #fdf2f8 100%);
-            border: 3px solid #f472b6;
+            background: #FFFFFF;
+            border: 3px solid #EDA6D2;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(244, 114, 182, 0.2);
+            box-shadow: 0 10px 30px rgba(237, 166, 210, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -84,12 +85,12 @@
             left: 0;
             width: 100%;
             height: 50%;
-            background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+            background: #EDA6D2;
             clip-path: polygon(0 0, 100% 0, 50% 100%);
             transition: transform 0.6s ease;
             transform-origin: top center;
             z-index: 3;
-            box-shadow: 0 4px 12px rgba(244, 114, 182, 0.4);
+            box-shadow: 0 4px 12px rgba(237, 166, 210, 0.5);
         }
 
         .envelope-view.opening .envelope-flap {
@@ -115,14 +116,14 @@
             right: 20px;
             width: 55px;
             height: 55px;
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-            border: 3px solid #ffffff;
+            background: #FFFB00;
+            border: 3px solid #FFFFFF;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             transform: rotate(-12deg);
-            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 251, 0, 0.4);
         }
 
         .bear-stamp::before {
@@ -132,7 +133,7 @@
 
         .envelope-address {
             text-align: center;
-            color: #ec4899;
+            color: #EDA6D2;
             margin-top: 70px;
         }
 
@@ -140,29 +141,26 @@
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 12px;
-            color: #be185d;
+            color: #EDA6D2;
         }
 
         .recipient-name {
             font-size: 28px;
             font-weight: 700;
-            background: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #EDA6D2;
             margin-bottom: 18px;
         }
 
         .click-instruction {
             font-size: 14px;
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-            color: #ffffff;
+            background: #FFFB00;
+            color: #FFFFFF;
             padding: 8px 16px;
             border-radius: 20px;
             font-weight: 600;
             animation: pulse 2s infinite;
-            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
-            border: 2px solid #ffffff;
+            box-shadow: 0 4px 12px rgba(255, 251, 0, 0.5);
+            border: 2px solid #FFFFFF;
         }
 
         @keyframes pulse {
@@ -176,14 +174,9 @@
             left: 25px;
             right: 25px;
             height: 3px;
-            background: linear-gradient(
-                90deg,
-                #f472b6 0%,
-                #fbbf24 50%,
-                #f472b6 100%
-            );
+            background: #EDA6D2;
             border-radius: 2px;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         /* CARTA ABIERTA */
@@ -193,7 +186,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background: linear-gradient(135deg, #fdf2f8 0%, #fff7ed 50%, #ffffff 100%);
+            background: #FFFFFF;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -213,11 +206,11 @@
             width: 100%;
             max-width: 380px;
             min-height: 600px;
-            background: #ffffff;
-            border: 3px solid #f472b6;
+            background: #FFFFFF;
+            border: 3px solid #EDA6D2;
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 20px 50px rgba(244, 114, 182, 0.2);
+            box-shadow: 0 20px 50px rgba(237, 166, 210, 0.3);
             position: relative;
             display: flex;
             flex-direction: column;
@@ -229,23 +222,20 @@
         .letter-header {
             text-align: center;
             margin-bottom: 25px;
-            border-bottom: 3px solid #f472b6;
+            border-bottom: 3px solid #EDA6D2;
             padding-bottom: 20px;
         }
 
         .letter-title {
             font-size: 32px;
-            background: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #EDA6D2;
             font-weight: 800;
             margin-bottom: 12px;
         }
 
         .letter-date {
             font-size: 16px;
-            color: #be185d;
+            color: #EDA6D2;
             font-style: italic;
             font-weight: 600;
         }
@@ -261,7 +251,7 @@
         .message-text {
             font-size: 18px;
             line-height: 1.7;
-            color: #be185d;
+            color: #EDA6D2;
             text-align: center;
             min-height: 320px;
             white-space: pre-line;
@@ -269,7 +259,7 @@
 
         .typing-cursor {
             display: inline-block;
-            background: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
+            background: #FFFB00;
             width: 3px;
             height: 24px;
             animation: blink 1s infinite;
@@ -288,12 +278,12 @@
             align-items: center;
             margin-top: 25px;
             padding-top: 20px;
-            border-top: 3px solid #f472b6;
+            border-top: 3px solid #EDA6D2;
         }
 
         .bear-icon-large {
             font-size: 48px;
-            filter: drop-shadow(0 4px 8px rgba(244, 114, 182, 0.2));
+            filter: drop-shadow(0 4px 8px rgba(237, 166, 210, 0.3));
         }
 
         .hearts-container {
@@ -305,7 +295,7 @@
         .heart {
             font-size: 32px;
             animation: heartbeat 2.5s infinite;
-            filter: drop-shadow(0 2px 4px rgba(244, 114, 182, 0.3));
+            filter: drop-shadow(0 2px 4px rgba(237, 166, 210, 0.4));
         }
 
         @keyframes heartbeat {
@@ -319,15 +309,15 @@
             right: -15px;
             width: 45px;
             height: 45px;
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            background: #FFFB00;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
             animation: sparkle 3s infinite;
-            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
-            border: 2px solid #ffffff;
+            box-shadow: 0 4px 20px rgba(255, 251, 0, 0.5);
+            border: 2px solid #FFFFFF;
         }
 
         @keyframes sparkle {
@@ -339,8 +329,8 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
-            color: #ffffff;
+            background: #EDA6D2;
+            color: #FFFFFF;
             border: none;
             padding: 12px 20px;
             border-radius: 25px;
@@ -348,20 +338,21 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+            box-shadow: 0 4px 15px rgba(237, 166, 210, 0.4);
         }
 
         .back-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(244, 114, 182, 0.4);
+            box-shadow: 0 6px 20px rgba(237, 166, 210, 0.5);
+            background: #FFFB00;
         }
 
         /* BOTÓN COLLAGE */
         .collage-button {
             display: none;
             margin: 25px auto 0;
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-            color: #ffffff;
+            background: #FFFB00;
+            color: #FFFFFF;
             border: none;
             padding: 14px 24px;
             border-radius: 25px;
@@ -369,12 +360,13 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 251, 0, 0.4);
         }
 
         .collage-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 251, 0, 0.5);
+            background: #EDA6D2;
         }
 
         .collage-button:active {
@@ -399,11 +391,11 @@
             height: 160px;
             object-fit: cover;
             border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(244, 114, 182, 0.15);
+            box-shadow: 0 8px 25px rgba(237, 166, 210, 0.2);
             opacity: 0;
             transform: scale(0.8) rotate(-5deg);
             animation: fadeZoom 0.8s forwards;
-            border: 3px solid #ffffff;
+            border: 3px solid #FFFFFF;
         }
 
         .collage img:nth-child(even) {
@@ -424,6 +416,27 @@
                 opacity: 1; 
                 transform: scale(1) rotate(0deg);
             }
+        }
+
+        /* Notificación */
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #EDA6D2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            z-index: 1001;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(10px);
         }
 
         /* Optimización iPhone 15 */
@@ -491,12 +504,16 @@
     </style>
 </head>
 <body>
+    <!-- Notificación -->
+    <div class="notification" id="notification"></div>
+
     <!-- Control de música -->
     <button class="music-control" id="musicControl">🎵</button>
-    <audio id="backgroundMusic" loop>
-        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
-        <source src="https://archive.org/download/TwinkleTwinkleLittleStar_755/TwinkleTwinkle.mp3" type="audio/mpeg">
-    </audio>
+
+    <!-- Audio de YouTube embebido (oculto) -->
+    <iframe id="youtubePlayer" style="display: none;" 
+            src="https://www.youtube.com/embed/7nnD8WARycU?autoplay=0&loop=1&playlist=7nnD8WARycU&controls=0&enablejsapi=1" 
+            frameborder="0" allow="autoplay; encrypted-media"></iframe>
 
     <div class="container">
         <!-- VISTA DEL SOBRE -->
@@ -533,7 +550,7 @@
                 </div>
 
                 <!-- Botón Collage -->
-                <button class="collage-button" id="collageButton">📸 Ver Collage de Fotos</button>
+                <button class="collage-button" id="collageButton">📸 Una fotito</button>
 
                 <!-- Collage de fotos -->
                 <div class="collage" id="collage">
@@ -544,11 +561,9 @@
                 </div>
 
                 <div class="letter-footer">
-                    <div class="bear-icon-large">🎁</div>
                     <div class="hearts-container">
                         <span class="heart">💝</span>
                     </div>
-                    <div class="bear-icon-large">🐻</div>
                 </div>
             </div>
         </div>
@@ -562,7 +577,8 @@
         const collageButton = document.getElementById('collageButton');
         const collage = document.getElementById('collage');
         const musicControl = document.getElementById('musicControl');
-        const backgroundMusic = document.getElementById('backgroundMusic');
+        const notification = document.getElementById('notification');
+        const youtubePlayer = document.getElementById('youtubePlayer');
         
         const birthdayMessage = `🎉 ¡Alyson! 🎂
 
@@ -584,64 +600,31 @@ K.B :3
         let collageVisible = false;
         let musicPlaying = false;
 
-        // Control de música
+        // Mostrar notificación
+        function showNotification(message) {
+            notification.textContent = message;
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Control de música de YouTube
         musicControl.addEventListener('click', function() {
             if (musicPlaying) {
-                backgroundMusic.pause();
+                // Pausar música
+                youtubePlayer.src = youtubePlayer.src.replace('autoplay=1', 'autoplay=0');
                 musicControl.textContent = '🎵';
                 musicPlaying = false;
+                showNotification('🔇 Música pausada');
             } else {
-                // Crear un contexto de audio suave con JavaScript
-                playBirthdaySounds();
+                // Reproducir música
+                youtubePlayer.src = youtubePlayer.src.replace('autoplay=0', 'autoplay=1');
                 musicControl.textContent = '🔇';
                 musicPlaying = true;
+                showNotification('🎵 ¡Reproduciendo música de cumpleaños!');
             }
         });
-
-        function playBirthdaySounds() {
-            // Sonidos suaves de cumpleaños usando Web Audio API
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            
-            function playTone(frequency, duration, startTime) {
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
-                
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-                
-                oscillator.frequency.value = frequency;
-                oscillator.type = 'sine';
-                
-                gainNode.gain.setValueAtTime(0, startTime);
-                gainNode.gain.linearRampToValueAtTime(0.1, startTime + 0.1);
-                gainNode.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
-                
-                oscillator.start(startTime);
-                oscillator.stop(startTime + duration);
-            }
-            
-            // Melodía suave de cumpleaños
-            const notes = [
-                {freq: 261.63, time: 0.0}, // C4
-                {freq: 261.63, time: 0.5}, // C4
-                {freq: 293.66, time: 1.0}, // D4
-                {freq: 261.63, time: 1.5}, // C4
-                {freq: 349.23, time: 2.0}, // F4
-                {freq: 329.63, time: 2.5}, // E4
-            ];
-            
-            const currentTime = audioContext.currentTime;
-            notes.forEach(note => {
-                playTone(note.freq, 0.4, currentTime + note.time);
-            });
-
-            // Repetir cada 10 segundos
-            if (musicPlaying) {
-                setTimeout(() => {
-                    if (musicPlaying) playBirthdaySounds();
-                }, 10000);
-            }
-        }
 
         envelopeView.addEventListener('click', function() {
             if (!hasOpened) {
@@ -700,10 +683,9 @@ K.B :3
         collageButton.addEventListener('click', () => {
             if (!collageVisible) {
                 collage.classList.add('visible');
-                collageButton.textContent = '📸 Ocultar Collage';
+                collageButton.textContent = '📸 Ocultar';
                 collageVisible = true;
                 
-                // Scroll suave hacia el collage
                 setTimeout(() => {
                     collage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }, 100);
