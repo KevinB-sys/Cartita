@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +26,8 @@
         .container {
             position: relative;
             width: 350px;
-            height: 320px; /* Aumentado de 260px a 320px */
+            height: 320px;
+            /* Aumentado de 260px a 320px */
         }
 
         /* CONTROL DE MÚSICA */
@@ -117,7 +119,8 @@
 
         .bear-stamp {
             position: absolute;
-            top: 25px; /* Ajustado para el sobre más alto */
+            top: 25px;
+            /* Ajustado para el sobre más alto */
             right: 25px;
             width: 55px;
             height: 55px;
@@ -139,7 +142,8 @@
         .envelope-address {
             text-align: center;
             color: #EDA6D2;
-            margin-top: 90px; /* Ajustado para el sobre más alto */
+            margin-top: 90px;
+            /* Ajustado para el sobre más alto */
         }
 
         .to-label {
@@ -169,13 +173,21 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
         }
 
         .envelope-pattern {
             position: absolute;
-            top: 65%; /* Ajustado para el sobre más alto */
+            top: 65%;
+            /* Ajustado para el sobre más alto */
             left: 25px;
             right: 25px;
             height: 3px;
@@ -273,8 +285,16 @@
         }
 
         @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
         }
 
         .letter-footer {
@@ -304,8 +324,15 @@
         }
 
         @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
         }
 
         .sparkles {
@@ -326,8 +353,17 @@
         }
 
         @keyframes sparkle {
-            0%, 100% { transform: scale(0.9) rotate(0deg); opacity: 0.8; }
-            50% { transform: scale(1.1) rotate(180deg); opacity: 1; }
+
+            0%,
+            100% {
+                transform: scale(0.9) rotate(0deg);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.1) rotate(180deg);
+                opacity: 1;
+            }
         }
 
         .back-button {
@@ -407,18 +443,30 @@
             transform: scale(0.8) rotate(5deg);
         }
 
-        .collage img:nth-child(1) { animation-delay: 0.1s; }
-        .collage img:nth-child(2) { animation-delay: 0.3s; }
-        .collage img:nth-child(3) { animation-delay: 0.5s; }
-        .collage img:nth-child(4) { animation-delay: 0.7s; }
+        .collage img:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .collage img:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .collage img:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .collage img:nth-child(4) {
+            animation-delay: 0.7s;
+        }
 
         @keyframes fadeZoom {
-            0% { 
-                opacity: 0; 
+            0% {
+                opacity: 0;
                 transform: scale(0.8) rotate(var(--rotate, -5deg));
             }
-            100% { 
-                opacity: 1; 
+
+            100% {
+                opacity: 1;
                 transform: scale(1) rotate(0deg);
             }
         }
@@ -448,22 +496,23 @@
         @media (max-width: 430px) and (max-height: 932px) {
             .container {
                 width: 320px;
-                height: 300px; /* Aumentado proporcionalmente */
+                height: 300px;
+                /* Aumentado proporcionalmente */
             }
-            
+
             .letter-paper {
                 width: 95%;
                 padding: 25px;
                 min-height: 550px;
                 max-height: 80vh;
             }
-            
+
             .message-text {
                 font-size: 17px;
                 min-height: 280px;
                 line-height: 1.6;
             }
-            
+
             .letter-title {
                 font-size: 28px;
             }
@@ -508,6 +557,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Notificación -->
     <div class="notification" id="notification"></div>
@@ -515,12 +565,11 @@
     <!-- Control de música -->
     <button class="music-control" id="musicControl">🎵</button>
 
-    <!-- Audio embebido (método más compatible) -->
     <audio class="hidden-audio" id="birthdayMusic" loop>
-        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
-        <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
+        <source src="cancion-favorita.mp3" type="audio/mpeg">
+        <source src="cancion-favorita.wav" type="audio/wav">
     </audio>
-
+    
     <div class="container">
         <!-- VISTA DEL SOBRE -->
         <div class="envelope-view" id="envelopeView">
@@ -545,7 +594,7 @@
             <button class="back-button" id="backButton">← Volver</button>
             <div class="letter-paper">
                 <div class="sparkles">✨</div>
-                
+
                 <div class="letter-header">
                     <div class="letter-title">¡Feliz Cumpleaños!</div>
                     <div class="letter-date">Con mucho aprecio 💕</div>
@@ -585,7 +634,7 @@
         const musicControl = document.getElementById('musicControl');
         const notification = document.getElementById('notification');
         const birthdayMusic = document.getElementById('birthdayMusic');
-        
+
         const birthdayMessage = `🎉 ¡Alyson! 🎂
 
 No soy muy bueno con las palabras, pero quiero que sepas lo especial que eres para mí.
@@ -615,7 +664,7 @@ Paúl :3
             if (!audioContext) {
                 try {
                     audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                } catch(e) {
+                } catch (e) {
                     console.log('Web Audio API no soportado');
                 }
             }
@@ -631,9 +680,9 @@ Paúl :3
         }
 
         // Control de música mejorado
-        musicControl.addEventListener('click', function() {
+        musicControl.addEventListener('click', function () {
             initAudio();
-            
+
             if (musicPlaying) {
                 // Pausar música
                 if (birthdayMusic) {
@@ -663,53 +712,53 @@ Paúl :3
         // Función para crear tonos de cumpleaños con Web Audio API
         function playBirthdayTone() {
             if (!audioContext) return;
-            
+
             try {
                 if (audioContext.state === 'suspended') {
                     audioContext.resume();
                 }
-                
+
                 const oscillator = audioContext.createOscillator();
                 const gainNode = audioContext.createGain();
-                
+
                 oscillator.connect(gainNode);
                 gainNode.connect(audioContext.destination);
-                
+
                 oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
                 oscillator.type = 'sine';
-                
+
                 gainNode.gain.setValueAtTime(0, audioContext.currentTime);
                 gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.1);
                 gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
-                
+
                 oscillator.start(audioContext.currentTime);
                 oscillator.stop(audioContext.currentTime + 1);
-                
+
                 musicControl.textContent = '🔇';
                 musicPlaying = true;
                 showNotification('🎵 ¡Tonos de cumpleaños!');
-                
+
                 // Resetear después de 1 segundo
                 setTimeout(() => {
                     musicControl.textContent = '🎵';
                     musicPlaying = false;
                 }, 1000);
-                
-            } catch(error) {
+
+            } catch (error) {
                 console.log('Error con Web Audio API:', error);
                 showNotification('🎵 Audio no disponible');
             }
         }
 
-        envelopeView.addEventListener('click', function() {
+        envelopeView.addEventListener('click', function () {
             if (!hasOpened) {
                 hasOpened = true;
                 envelopeView.classList.add('opening');
-                
+
                 setTimeout(() => {
                     envelopeView.classList.add('hidden');
                     letterView.classList.add('visible');
-                    
+
                     setTimeout(() => {
                         typeMessage();
                     }, 500);
@@ -717,7 +766,7 @@ Paúl :3
             }
         });
 
-        backButton.addEventListener('click', function() {
+        backButton.addEventListener('click', function () {
             letterView.classList.remove('visible');
             envelopeView.classList.remove('hidden');
             envelopeView.classList.remove('opening');
@@ -726,7 +775,7 @@ Paúl :3
             messageText.innerHTML = '';
             collageButton.style.display = 'none';
             collage.classList.remove('visible');
-            
+
             // Pausar música al volver
             if (musicPlaying && birthdayMusic) {
                 birthdayMusic.pause();
@@ -738,18 +787,18 @@ Paúl :3
         function typeMessage() {
             let index = 0;
             messageText.innerHTML = '';
-            
+
             function typeChar() {
                 if (index < birthdayMessage.length) {
                     messageText.innerHTML += birthdayMessage.charAt(index);
                     index++;
-                    
-                    const delay = birthdayMessage.charAt(index - 1) === '\n' ? 300 : 
-                                 birthdayMessage.charAt(index - 1) === '.' ? 400 :
-                                 birthdayMessage.charAt(index - 1) === '!' ? 350 :
-                                 birthdayMessage.charAt(index - 1) === ',' ? 200 : 
-                                 birthdayMessage.charAt(index - 1) === ':' ? 250 : 75;
-                    
+
+                    const delay = birthdayMessage.charAt(index - 1) === '\n' ? 300 :
+                        birthdayMessage.charAt(index - 1) === '.' ? 400 :
+                            birthdayMessage.charAt(index - 1) === '!' ? 350 :
+                                birthdayMessage.charAt(index - 1) === ',' ? 200 :
+                                    birthdayMessage.charAt(index - 1) === ':' ? 250 : 75;
+
                     setTimeout(typeChar, delay);
                 } else {
                     messageText.innerHTML += '<span class="typing-cursor"></span>';
@@ -758,7 +807,7 @@ Paúl :3
                     }, 800);
                 }
             }
-            
+
             typeChar();
         }
 
@@ -767,7 +816,7 @@ Paúl :3
                 collage.classList.add('visible');
                 collageButton.textContent = '📸 Ocultar';
                 collageVisible = true;
-                
+
                 setTimeout(() => {
                     collage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }, 100);
@@ -785,14 +834,14 @@ Paúl :3
         }, { once: true });
 
         // Prevenir zoom en doble tap (iOS)
-        document.addEventListener('touchstart', function(e) {
+        document.addEventListener('touchstart', function (e) {
             if (e.touches.length > 1) {
                 e.preventDefault();
             }
         });
 
         let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(e) {
+        document.addEventListener('touchend', function (e) {
             const now = (new Date()).getTime();
             if (now - lastTouchEnd <= 300) {
                 e.preventDefault();
@@ -801,4 +850,5 @@ Paúl :3
         }, false);
     </script>
 </body>
+
 </html>
