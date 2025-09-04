@@ -25,7 +25,7 @@
         .container {
             position: relative;
             width: 350px;
-            height: 260px;
+            height: 320px; /* Aumentado de 260px a 320px */
         }
 
         /* CONTROL DE MÚSICA */
@@ -49,6 +49,11 @@
         .music-control:hover {
             transform: scale(1.1);
             background: #FFFB00;
+        }
+
+        /* Audio oculto */
+        .hidden-audio {
+            display: none;
         }
 
         /* SOBRE CERRADO */
@@ -112,8 +117,8 @@
 
         .bear-stamp {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 25px; /* Ajustado para el sobre más alto */
+            right: 25px;
             width: 55px;
             height: 55px;
             background: #FFFB00;
@@ -134,7 +139,7 @@
         .envelope-address {
             text-align: center;
             color: #EDA6D2;
-            margin-top: 70px;
+            margin-top: 90px; /* Ajustado para el sobre más alto */
         }
 
         .to-label {
@@ -170,7 +175,7 @@
 
         .envelope-pattern {
             position: absolute;
-            top: 60%;
+            top: 65%; /* Ajustado para el sobre más alto */
             left: 25px;
             right: 25px;
             height: 3px;
@@ -443,7 +448,7 @@
         @media (max-width: 430px) and (max-height: 932px) {
             .container {
                 width: 320px;
-                height: 240px;
+                height: 300px; /* Aumentado proporcionalmente */
             }
             
             .letter-paper {
@@ -510,10 +515,11 @@
     <!-- Control de música -->
     <button class="music-control" id="musicControl">🎵</button>
 
-    <!-- Audio de YouTube embebido (oculto) -->
-    <iframe id="youtubePlayer" style="display: none;" 
-            src="https://www.youtube.com/embed/7nnD8WARycU?autoplay=0&loop=1&playlist=7nnD8WARycU&controls=0&enablejsapi=1" 
-            frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    <!-- Audio embebido (método más compatible) -->
+    <audio class="hidden-audio" id="birthdayMusic" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+        <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
+    </audio>
 
     <div class="container">
         <!-- VISTA DEL SOBRE -->
@@ -578,7 +584,7 @@
         const collage = document.getElementById('collage');
         const musicControl = document.getElementById('musicControl');
         const notification = document.getElementById('notification');
-        const youtubePlayer = document.getElementById('youtubePlayer');
+        const birthdayMusic = document.getElementById('birthdayMusic');
         
         const birthdayMessage = `🎉 ¡Alyson! 🎂
 
@@ -600,6 +606,21 @@ K.B :3
         let collageVisible = false;
         let musicPlaying = false;
 
+        // Crear contexto de audio para mejor compatibilidad
+        let audioContext;
+        let musicSource;
+
+        // Función para inicializar audio
+        function initAudio() {
+            if (!audioContext) {
+                try {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                } catch(e) {
+                    console.log('Web Audio API no soportado');
+                }
+            }
+        }
+
         // Mostrar notificación
         function showNotification(message) {
             notification.textContent = message;
@@ -609,22 +630,76 @@ K.B :3
             }, 3000);
         }
 
-        // Control de música de YouTube
+        // Control de música mejorado
         musicControl.addEventListener('click', function() {
+            initAudio();
+            
             if (musicPlaying) {
                 // Pausar música
-                youtubePlayer.src = youtubePlayer.src.replace('autoplay=1', 'autoplay=0');
+                if (birthdayMusic) {
+                    birthdayMusic.pause();
+                }
                 musicControl.textContent = '🎵';
                 musicPlaying = false;
                 showNotification('🔇 Música pausada');
             } else {
                 // Reproducir música
-                youtubePlayer.src = youtubePlayer.src.replace('autoplay=0', 'autoplay=1');
-                musicControl.textContent = '🔇';
-                musicPlaying = true;
-                showNotification('🎵 ¡Reproduciendo música de cumpleaños!');
+                if (birthdayMusic) {
+                    birthdayMusic.play().then(() => {
+                        musicControl.textContent = '🔇';
+                        musicPlaying = true;
+                        showNotification('🎵 ¡Reproduciendo una cancion de tu grupo favorito');
+                    }).catch(error => {
+                        console.log('Error al reproducir:', error);
+                        // Fallback: crear tonos con Web Audio API
+                        playBirthdayTone();
+                    });
+                } else {
+                    playBirthdayTone();
+                }
             }
         });
+
+        // Función para crear tonos de cumpleaños con Web Audio API
+        function playBirthdayTone() {
+            if (!audioContext) return;
+            
+            try {
+                if (audioContext.state === 'suspended') {
+                    audioContext.resume();
+                }
+                
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+                gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.1);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 1);
+                
+                musicControl.textContent = '🔇';
+                musicPlaying = true;
+                showNotification('🎵 ¡Tonos de cumpleaños!');
+                
+                // Resetear después de 1 segundo
+                setTimeout(() => {
+                    musicControl.textContent = '🎵';
+                    musicPlaying = false;
+                }, 1000);
+                
+            } catch(error) {
+                console.log('Error con Web Audio API:', error);
+                showNotification('🎵 Audio no disponible');
+            }
+        }
 
         envelopeView.addEventListener('click', function() {
             if (!hasOpened) {
@@ -651,6 +726,13 @@ K.B :3
             messageText.innerHTML = '';
             collageButton.style.display = 'none';
             collage.classList.remove('visible');
+            
+            // Pausar música al volver
+            if (musicPlaying && birthdayMusic) {
+                birthdayMusic.pause();
+                musicControl.textContent = '🎵';
+                musicPlaying = false;
+            }
         });
 
         function typeMessage() {
@@ -691,10 +773,16 @@ K.B :3
                 }, 100);
             } else {
                 collage.classList.remove('visible');
-                collageButton.textContent = '📸 Ver Collage de Fotos';
+                collageButton.textContent = '📸 Una fotito';
                 collageVisible = false;
             }
         });
+
+        // Inicializar contexto de audio con la primera interacción del usuario
+        document.addEventListener('click', function initUserInteraction() {
+            initAudio();
+            document.removeEventListener('click', initUserInteraction);
+        }, { once: true });
 
         // Prevenir zoom en doble tap (iOS)
         document.addEventListener('touchstart', function(e) {
